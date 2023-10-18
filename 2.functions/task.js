@@ -7,7 +7,7 @@ function getArrayParams(...arr) {
   let sum = 0;
   let avg = 0
 
-  if (arr.length != 0) {
+  if (arr.length !== 0) {
       for (let i = 0; i < arr.length; i++) {
           if (arr[i] <= min) {
               min = arr[i];
@@ -33,7 +33,7 @@ function getArrayParams(...arr) {
 
 //насадка суммирования элементов
 function summElementsWorker(...attachments) {
-  if (attachments.length != 0) {
+  if (attachments.length !== 0) {
       const initialSumValue = 0;
       const sumOfArrayElements = attachments.reduce((sum, element) => sum + element, initialSumValue);
       return sumOfArrayElements;
@@ -44,7 +44,7 @@ function summElementsWorker(...attachments) {
 
 //насадка вычисления разницы максимального и минимального элементов
 function differenceMaxMinWorker(...attachments) {
-  if (attachments.length != 0) {
+  if (attachments.length !== 0) {
       const max = attachments.reduce((a, b) => Math.max(a, b), -Infinity);
       const min = attachments.reduce((a, b) => Math.min(a, b), Infinity);
       return max - min;
@@ -55,7 +55,7 @@ function differenceMaxMinWorker(...attachments) {
 
 //насадка вычисления разницы сумм чётных и нечётных элементов;
 function differenceEvenOddWorker(...attachments) {
-  if (attachments.length != 0) {
+  if (attachments.length !== 0) {
       let sumOfEvenElement = 0;
       let sumOfOddElement = 0;
       for (let i = 0; i < attachments.length; i++) {
@@ -73,7 +73,7 @@ function differenceEvenOddWorker(...attachments) {
 
 //насадка вычисления среднего значения чётных элементов.
 function averageEvenElementsWorker(...attachments) {
-  if (attachments.length != 0) {
+  if (attachments.length !== 0) {
       let sumEvenElement = 0;
       let countEvenElement = 0;
 
@@ -84,7 +84,7 @@ function averageEvenElementsWorker(...attachments) {
           }
       }
 
-      if (countEvenElement != 0) {
+      if (countEvenElement !== 0) {
           return sumEvenElement / countEvenElement;
       } else {
           return 0;
@@ -99,7 +99,7 @@ function makeWork([...arrOfArr], func) {
   let maxWorkerResult = -Infinity;
   let currentMaxWorker = -Infinity;
 
-  if (arrOfArr.length != 0) {
+  if (arrOfArr.length !== 0) {
       for (let i = 0; i < arrOfArr.length; i++) {
           currentMaxWorker = func(...arrOfArr[i]);
           if (currentMaxWorker > maxWorkerResult) {
