@@ -1,6 +1,6 @@
 // Работа с массивами
 
-// Задача 1 min, max, sum
+// Задача 1 min, max, sum элементов массива
 function getArrayParams(...arr) {
   let min = arr[0];
   let max = arr[0];
