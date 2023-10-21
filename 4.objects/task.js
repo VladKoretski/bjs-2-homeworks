@@ -1,19 +1,39 @@
+// Функция-конструктор студента
 function Student(name, gender, age) {
-  
+    this.name = name;
+    this.gender = gender;
+    this.age = age;
+    this.marks = [];
 }
 
-Student.prototype.setSubject = function (subjectName) {
-  
+// Студент начинает изучать предмет
+Student.prototype.setSubject = function(subjectName) {
+    this.subject = subjectName;
 }
 
-Student.prototype.addMarks = function (...marks) {
-  
+// Добавление оценок
+Student.prototype.addMarks = function(...marksToAdd) {
+    if (!this.marks) {
+        console.log("Student has been kicked out");
+        return;
+    } else {
+        this.marks.push(...marksToAdd);
+    }
 }
 
-Student.prototype.getAverage = function () {
-  
+// Оценка успеваемости
+Student.prototype.getAverage = function() {
+    if (!this.marks || !this.marks.length) {
+        return 0;
+    } else {
+        const sum = this.marks.reduce((accumulator, current) => accumulator + current);
+        return sum / this.marks.length;
+    }
 }
 
-Student.prototype.exclude = function (reason) {
-  
+// Исключение студент по причине reason
+Student.prototype.exclude = function(reason) {
+    delete this.subject;
+    delete this.marks;
+    this.exclude = reason;
 }
